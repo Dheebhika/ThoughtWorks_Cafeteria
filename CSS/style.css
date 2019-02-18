@@ -9,68 +9,121 @@
 
 }
 h1{
-       color: #FA2D11;
-       text-shadow: 3px 2px pink;
+       color: white;
+       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
        text-align: center;
        letter-spacing: 3px;
        word-spacing: 20px;
-       font-size: 40px;
+       font-size: 50px;
 }
 .employee_login{
   padding: 10px ;
   font-size: 24px;
   cursor: pointer;
   text-align: center;
-  color: #E5E50C;
-  background-color: #F53614;
+  color: white;
+  background-color: #E08449;
   border-radius: 15px;
   box-shadow: 4px 4px grey;
-  margin-left: 300px;
-  margin-top: 50px;
+  margin-left: 250px;
+  margin-top: 70px;
+  width:150px;
 }
 
 .employee_login:hover {
-        background-color: #C2270C}
-
-.employee_login:active {
-        background-color: #851907;
+        background-color: #D6951D
 }
 
-input[type=number], input[type=text] {
-  width: 100%;
-  padding: 15px;
-  margin: 20px ;
-  display: inline-block;
-  border: A solid border;
-  box-sizing: border-box;
+.employee_login:active {
+        background-color: #FAB618
 }
 
 .button {
-  background-color: #4CAF50;
+  display: block;
+  width: 250px;
+  height: 30px;
   color: white;
-  padding: 15px;
-  margin: 20px;
+  padding: 5px;
+  margin: 30px;
+  margin-left:400px;
   border: none;
   cursor: pointer;
-  width: 100%;
   text-align: center;
 
 }
-.employee_background_image {
-         width: 1200px;
-         height: 600px;
-         padding: 100px;
-         margin: 10px;
-         box-shadow: 10px 10px 20px 20px orange;
-         background-image: url("employee_background_image.jpg");
-         background-size: cover;
-}
 
-.employee_image{
-   text-align: center;
+
+.cold_beverages_image{
+text-align: center;
    margin: 24px 12px;
+   cursor: pointer;
 }
-.image_styles{
+.cold_beverages_styles{
    width: 30%;
    border-radius: 50%;
   }
+
+
+
+  .hot_beverages_image{
+   text-align: center;
+   margin: 24px 12px;
+   padding: 60px;
+   cursor: pointer;
+}
+.hot_beverages_styles{
+   width: 30%;
+   border-radius: 50%;
+  }
+
+#myInput {
+  text-align: center;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 50%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+
+
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  align:center;
+  width:747px;
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+.coffee_background{
+   background-repeat: no-repeat;
+   background-size: 100% auto;
+  }
+/*.back_button{
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 18px;
+}
+.back_button:hover{
+background-color: grey;
+  color: black;
+}
+*/
+
+

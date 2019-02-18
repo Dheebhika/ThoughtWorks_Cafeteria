@@ -2,23 +2,30 @@
 <html>
 <head>
     <title>ThoughtWorks_Cafeteria</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="../CSS/employee_page_style.css"/>
+    <script src="../JAVA_SCRIPT/beverages_page.js"></script>
 </head>
 <body class="employee_background_image">
-<div class="employee_image">
-    <img src="employee_image.jpg" class="image_styles"></div>
+<form action="types_of_beverages.html">
+    <div class="container">
 
-  <div class="container">
-      <label for="employee_ID"><b>Employee ID: </b></label>
-     <input type="number" placeholder="Enter your ID " required />
+  <label for="number"><b>Employee ID</b></label>
+    <input type="number" id="number" placeholder="Enter your ID ..."  required>
 
-    <label for="name"><b>Name: </b></label>
-    <input type="text" placeholder="Enter your name" />
+    <label for="username"><b>Username</b></label>
+    <input type="text" id="username" placeholder="Enter your name ..."  required><br>
+
+
+    <button type="submit">Login</button>
   </div>
-<div class="button">
-    <button type="button">Login</button>
-  </div>
-   <form action="beverages_page.html">
 
-    </form>
+  <div class="container" style="background-color:#f1f1f1">
+   <form action="login_page.html">
+        <a href="login_page.html" class="cancel">Back</a>
+   </form>
+   <button type="reset" class="reset">Reset</button>
+  </div>
+</form>
+
 </body>
+</html>
