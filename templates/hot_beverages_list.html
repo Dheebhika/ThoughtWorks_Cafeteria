@@ -3,7 +3,14 @@
 <head>
 </head>
 <link rel="stylesheet" href="../static/style/style.css"/>
-  <script src="../static/script/hot_beverages.js"></script>
+<script src="../static/script/hot_beverages.js"></script>
+
+
+<style>
+        table, th, td {
+        border: 1px solid white;
+        }
+</style>
 </head>
 <body background="../images/coffee_background.jpg" class="coffee_background">
 
@@ -11,16 +18,65 @@
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for items..">
 
+
 <ul id="myUL">
-    <li ><a href="#">Coffee</a>Count: <input type="number" id="myNumber">
-    <button onclick="myFunction()">+</button>
-    <button onclick="myFunction1()">-</button></li>
-  <li><a href="#">Tea</a></li>
+    <table>
+        <tr>
+            <td valign="top">
+                <table>
 
-  <li><a href="#">Milk</a></li>
-  <li><a href="#">Boost</a></li>
-  <li><a href="#">Horlicks</a></li>
 
+                    <tbody>
+
+
+                    <li><a href="#">Boost <input type="button" value="Add to cart" class="icon" onclick="AddtoCart('Boost',1)"/> </a>
+                    </li>
+
+                    <li><a href="#">Bournvita <input type="button" value="Add to cart" class="icon" onclick="AddtoCart('Bournvita',1)"/> </a>
+                    </li>
+                    <li><a href="#">Coffee <input type="button" value="Add to cart" class="icon"
+                                                  onclick="AddtoCart('Coffee',1)"/></a></li>
+
+
+
+                    <li><a href="#">Ginger Tea <input type="button" value="Add to cart" class="icon" onclick="AddtoCart('Ginger Tea',1)"/> </a>
+                    </li>
+
+
+
+                    <li><a href="#">Green Tea <input type="button" value="Add to cart" class="icon" onclick="AddtoCart('Green Tea',1)"/> </a>
+                    </li>
+                    <li><a href="#">Horlicks <input type="button" value="Add to cart" class="icon"
+                                                    onclick="AddtoCart('Horlicks',1)"/> </a></li>
+                    <li><a href="#">Milk <input type="button" value="Add to cart" class="icon" onclick="AddtoCart('Milk',1)"/> </a>
+                    </li>
+                    <li><a href="#">Tea <input type="button" value="Add to cart" class="icon" onclick="AddtoCart('Tea',1)"/> </a>
+                    </li>
+
+
+                    </tbody>
+
+
+                </table>
+            </td>
+            <td valign="top">
+                <table id="ordered_item_title">
+                    <thead>
+                    <tr>
+                        <td>
+                            Itemname
+                        </td>
+                        <td>
+                            Quantity
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody id="ordered_items_list">
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
 </ul>
 
 
