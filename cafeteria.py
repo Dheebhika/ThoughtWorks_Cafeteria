@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 # from post_data_to_database import post_data
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 CORS(app)
 connection = psycopg2.connect("dbname = thoughtworks_cafeteria user=admin")
 
