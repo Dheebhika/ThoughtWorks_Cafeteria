@@ -27,6 +27,14 @@ def post_data(connection, user_data):
     cursor.close()
 
 
+def Validate_data(connection, user_data):
+    cursor = connection.cursor()
+    cursor.execute("""select employee_id from employee_details where employee_id=%s ;""", (user_data['employee_id'],))
+
+    connection.commit()
+    cursor.close()
+
+
 @app.route('/post-data', methods=['POST'])
 def get_data():
     post_data(connection, request.form)
