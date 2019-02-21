@@ -4,7 +4,7 @@
          padding: 100px;
          margin: 10px;
          box-shadow: 10px 10px 20px 20px orange;
-         background-image: url("background_image.jpg");
+         background-image: url("../images/background_image.jpg");
          background-size: cover;
          }
 
@@ -12,8 +12,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
 
 h1{
        color: white;
@@ -23,6 +21,7 @@ h1{
        word-spacing: 20px;
        font-size: 50px;
 }
+
 .employee_login{
   padding: 10px ;
   font-size: 24px;
@@ -44,6 +43,68 @@ h1{
 .employee_login:active {
         background-color: #FAB618
 }
+
+.border{
+border: 2px solid #8A8484;
+width: 500px;
+margin: auto;
+margin-top: 80px;
+     }
+
+.employee_background_image {
+         width: 1200px;
+         height: 600px;
+         padding: 100px;
+         margin-top: 100px;
+         box-shadow: 10px 10px 20px 20px orange;
+         background-image: url("employee_background_image.jpg");
+         background-size: cover;
+}
+
+
+.style{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input[type=text], input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.reset {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+
+}
+.container {
+  padding: 16px;
+  width:20%
+  margin-right:80px;
+
+}
+
+
 
 .button {
   display: block;
@@ -70,9 +131,7 @@ text-align: center;
    border-radius: 50%;
   }
 
-
-
-  .hot_beverages_image{
+.hot_beverages_image{
    text-align: center;
    margin: 24px 12px;
    padding: 60px;
@@ -122,15 +181,17 @@ text-align: center;
    background-repeat: no-repeat;
    background-size: 100% auto;
   }
-/*.back_button{
-  background-color: #f1f1f1;
-  color: black;
-  font-size: 18px;
+
+.icon{
+  position: absolute;
+  left: 700px;
 }
-.back_button:hover{
-background-color: grey;
-  color: black;
-}
-*/
+
+.table, th, td {
+        border: 1px solid white;
+        }
+
+
+
 
 
