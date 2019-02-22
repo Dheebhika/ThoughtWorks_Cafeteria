@@ -27,23 +27,20 @@ def post_data(connection, user_data):
     cursor.close()
 
 
-def Validate_data(connection, user_data):
+def validate_data(connection, user_data):
     cursor = connection.cursor()
-    cursor.execute("""select employee_id from employee_details where employee_id=%s ;""", (user_data['employee_id'],))
-
+    employee_id = cursor.execute("""select employee_id from employee_details where employee_id=%s ;""", (user_data['employee_id'],))
+    if employee_id == user_data['employee_id']:
+        return render_template('types_of_beverages.html')
+    else:
+        return render_template('login_page.html')
     connection.commit()
     cursor.close()
 
 
-@app.route('/post-data', methods=['POST'])
-def get_data():
-    post_data(connection, request.form)
-    return render_template('display_page.html', shared=request.form)
-
-
 @app.route('/types_of_beverages', methods=['POST'])
 def post_data_request():
-    post_data(connection, request.form)
+    validate_data(connection, request.form)
     return render_template('types_of_beverages.html', shared=request.form)
 
 
