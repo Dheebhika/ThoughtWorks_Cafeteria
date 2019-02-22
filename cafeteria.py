@@ -1,4 +1,5 @@
 import psycopg2
+from decimal import *
 from flask import Flask, request, render_template
 from flask_cors import CORS
 
@@ -29,19 +30,19 @@ def post_data(connection, user_data):
 
 def validate_data(connection, user_data):
     cursor = connection.cursor()
-    employee_id = cursor.execute("""select employee_id from employee_details where employee_id=%s ;""", (user_data['employee_id'],))
-    if employee_id == user_data['employee_id']:
-        return render_template('types_of_beverages.html')
-    else:
-        return render_template('login_page.html')
-    connection.commit()
+    cursor.execute("select employee_id from employee_details where employee_id=%(id)s",
+                   {'id': user_data['employee_id']})
+    returned_rows = cursor.fetchall()
     cursor.close()
+    if len(returned_rows) == 0:
+        return render_template('login_page.html')
+    else:
+        return render_template('types_of_beverages.html')
 
 
 @app.route('/types_of_beverages', methods=['POST'])
 def post_data_request():
-    validate_data(connection, request.form)
-    return render_template('types_of_beverages.html', shared=request.form)
+    return validate_data(connection, request.form)
 
 
 if __name__ == '__main__':
