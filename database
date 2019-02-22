@@ -1,4 +1,14 @@
-Database name: thoughtworks_cafeteria
+Databases:
 
-Table (for storing details): employee_details
+    create database thoughtworks_cafeteria;
 
+    create table login_table(Serial_no serial,Employee_ID numeric,Username varchar(32));
+
+
+
+
+Table (for storing all employee_details):
+
+    create table employee_details(Serial_no serial,Employee_ID numeric,Username varchar(32));
+
+    insert into employee_details(employee_id,username)values(101,'name1'),(102,'name2'),(103,'name3'),(104,'name4'),(105,'name5'),(106,'name6'),(107,'name7'),(108,'name8'),(109,'name9'),(110,'name10');
