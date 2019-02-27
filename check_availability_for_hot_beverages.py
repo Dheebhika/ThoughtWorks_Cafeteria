@@ -22,7 +22,7 @@ def menu_list_hot():
 def database_connection_list_hot(connection, user_data):
     cursor = connection.cursor()
     array = tuple(user_data.keys())
-    set_data = "update hogit statust_beverages set availabilty = 'yes' WHERE items  IN %s"
+    set_data = "update hot_beverages set availabilty = 'yes' WHERE items  IN %s"
     cursor.execute(set_data, (array,))
     connection.commit()
     cursor.close()
