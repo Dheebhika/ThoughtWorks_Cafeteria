@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hot_available</title>
+</head>
+<body>
+<form action="/list_hot_item">
+
+    <ul>
+        {% for item in items %}
+        <li>{{ item }}
+            <!--<button onclick="myFunction1({{item}})">{{item}}</button>-->
+            <!--<button onclick="myFunction3()">-</button>-->
+            <!--<input type="number" id="myNumber">-->
+
+            <!--<button onclick="myFunction2()">+</button>-->
+
+            <!--<p id="demo"></p>-->
+
+    <!--function myFunction1(name) {-->
+    <!--document.getElementById("demo").innerHTML =   name ;-->
+    <!--}-->
+    <!--function myFunction2() {-->
+    <!--document.getElementById("myNumber").stepUp();-->
+    <!--}-->
+    <!--function myFunction3() {-->
+    <!--document.getElementById("myNumber").stepDown();-->
+    <!--}-->
+
+        </li>
+        {% endfor %}
+    </ul>
+
+
+</form>
+
+</body>
+</html>
