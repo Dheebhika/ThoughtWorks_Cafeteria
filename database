@@ -1,31 +1,28 @@
-Databases:
-
-    create database thoughtworks_cafeteria;
-
-    create table login_table(Serial_no serial,Employee_ID numeric,Username varchar(32));
+Database:  create database thoughtworks_cafeteria;
 
 
+Table (for storing employee_details):
 
-
-Table (for storing all employee_details):
-
-    create table employee_details(Serial_no serial,Employee_ID numeric,Username varchar(32));
+    create table employee_details(Serial_no serial,Employee_ID integer primary key,Username varchar(32));
 
     insert into employee_details(employee_id,username)values(101,'name1'),(102,'name2'),(103,'name3'),(104,'name4'),(105,'name5'),(106,'name6'),(107,'name7'),(108,'name8'),(109,'name9'),(110,'name10');
 
 
+Table (for vendor login details):
 
-Table (for all available items):
+    create table vendor_login(vendor_id integer primary key,password varchar(32));
 
-    create table hot_beverages(hot_beverages_id integer,items varchar(32),check_availability varchar(32));
-
-    insert into hot_beverages(hot_beverages_id,items,check_availability)values(1,'Boost'),(2,'Bounvita'),(3,'Coffee'),(4,'Ginger Tea'),(5,'Green Tea'),(6,'Horlicks'),(7,'Milk'),(8,'Tea');
-
+    insert into vendor_login(vendor_id,password)values(1001,'cold'),(1002,'hot');
 
 
-    create table cold_beverages(cold_beverages_id integer,items varchar(32),check_availability varchar(32));
+Table (for beverages details):
 
-    insert into cold_beverages(cold_beverages_id,items,check_availability)values(1,'Apple Juice'),(2,'Banana Juice),(3,'Carrot Juice'),(4,'Guava Juice'),(5,'Kiwi'),(6,'Mousambi Juice'),(7,'Musk Melon'),(8,'Orange Juice'),(9,'Papaya Juice'),(10,'Pine apple'),(11,'Pomegranate'),(12,'Strawberry'),(13,'Water Melon');
+    create table beverage_details(reference_id integer,id integer,name varchar(32),is_available varchar(20),PRIMARY KEY(reference_id,id),FOREIGN KEY(reference_id) REFERENCES vendor_details(vendor_id));
+
+
+Table (for ordered items):
+
+    create table ordered_items(employee_id integer,item_id integer,item varchar,quantity integer,date DATE DEFAULT CURRENT_DATE,PRIMARY KEY(employee_id,item_id),FOREIGN KEY(employee_id)REFERENCES employee_details(employee_id));
 
 
 
