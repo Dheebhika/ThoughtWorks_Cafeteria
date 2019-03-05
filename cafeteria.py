@@ -31,21 +31,22 @@ def validate_data(connection, user_data):
     if len(returned_rows) == 0:
         return render_template('welcome_page.html')
     else:
-        # post_data(connection, user_data)
+        post_data(connection, user_data)
         return render_template('types_of_beverages_employee.html')
+
+
+def post_data(connection, user_data):
+    cursor = connection.cursor()
+    cursor.execute("""insert into login_table(employee_id,username) values( %s, %s);""",
+                   (user_data['employee_id'], user_data['username']), )
+    connection.commit()
+    cursor.close()
+    return cursor.execute
 
 
 @app.route('/employee-choice')
 def employee_choice():
     return render_template('types_of_beverages_employee.html')
-
-
-# def post_data(connection, user_data):
-#     cursor = connection.cursor()
-#     cursor.execute("""insert into login_table(employee_id,username) values( %s, %s);""",
-#                    (user_data['employee_id'], user_data['username']))
-#     connection.commit()
-#     cursor.close()
 
 
 @app.route('/beverages-for-cold')
@@ -75,7 +76,7 @@ def hot_items():
 
 def database_selected_hot_items():
     cursor = connection.cursor()
-    cursor.execute("select name from beverage_details where is_available  ='yes' AND vendor_id=1002 ")
+    cursor.execute("select name from beverage_details where is_available  ='yes' AND vendor_id=1002")
     record = cursor.fetchall()
 
     return record
@@ -151,6 +152,7 @@ def database_connection_list(connection, user_data):
     cursor.execute(set_data, (array,))
     connection.commit()
     cursor.close()
+    return set_data
 
 
 if __name__ == '__main__':
