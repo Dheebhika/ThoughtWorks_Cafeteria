@@ -3,37 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>hot_available</title>
+    <style>
+        .sidenav {
+        height: 100%;
+        width:250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color:grey;
+        padding-top: 20px;
+}
+
+
+    </style>
+    <script>
+        function myFunction(myBtn) {
+        var x = document.getElementById("myBtn").value;
+        document.getElementById("demo").innerHTML = x;
+        var z = document.createElement("INPUT");
+        z.setAttribute("type","number");
+        z.setAttribute("value","0");
+        document.body.append(z);
+        document.getElementById(myBtn.id).disabled = true;
+}
+
+    </script>
 </head>
 <body>
-<form action="/list_hot_item">
-
+<form action="/beverages-for-cold">
     <ul>
         {% for item in items %}
-        <li>{{ item }}
-            <!--<button onclick="myFunction1({{item}})">{{item}}</button>-->
-            <!--<button onclick="myFunction3()">-</button>-->
-            <!--<input type="number" id="myNumber">-->
+        <li>
+            <input type="button" onclick="myFunction(this)" id="myBtn" name="{{lists}}" value="{{item}}">
 
-            <!--<button onclick="myFunction2()">+</button>-->
-
-            <!--<p id="demo"></p>-->
-
-    <!--function myFunction1(name) {-->
-    <!--document.getElementById("demo").innerHTML =   name ;-->
-    <!--}-->
-    <!--function myFunction2() {-->
-    <!--document.getElementById("myNumber").stepUp();-->
-    <!--}-->
-    <!--function myFunction3() {-->
-    <!--document.getElementById("myNumber").stepDown();-->
-    <!--}-->
+            <p id="demo"></p>
 
         </li>
         {% endfor %}
     </ul>
-
-
 </form>
-
 </body>
 </html>
