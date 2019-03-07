@@ -3,9 +3,9 @@ Database:  create database thoughtworks_cafeteria;
 
 Table (for storing employee_details):
 
-    create table employee_details(Serial_no serial,Employee_ID integer primary key,Username varchar(32));
+    create table employee_details(Employee_ID integer primary key,Username varchar(32));
 
-    insert into employee_details(employee_id,username)values(101,'name1'),(102,'name2'),(103,'name3'),(104,'name4'),(105,'name5'),(106,'name6'),(107,'name7'),(108,'name8'),(109,'name9'),(110,'name10');
+    insert into employee_details(employee_id,username)values(101,'name1'),(102,'name2'),(103,'name3'),(104,'name4'),(105,'name5'),(106,'name6'),(107,'name7'),(108,'name8'),(109,'name9'),(110,'name10'),(100,'Guest);
 
 
 Table (for vendor login details):
@@ -17,12 +17,14 @@ Table (for vendor login details):
 
 Table (for beverages details):
 
-    create table beverage_details(reference_id integer,id integer,name varchar(32),is_available varchar(20),PRIMARY KEY(reference_id,id),FOREIGN KEY(reference_id) REFERENCES vendor_details(vendor_id));
+    create table beverages(vendor_id integer,item_id SERIAL,item_name varchar(30),availability integer,cost integer,FOREIGN KEY(vendor_id) REFERENCES vendor_login(id),PRIMARY KEY(item_id));
 
 
 Table (for ordered items):
 
-    create table ordered_items(employee_id integer,item_id integer,item varchar,quantity integer,date DATE DEFAULT CURRENT_DATE,PRIMARY KEY(employee_id,item_id),FOREIGN KEY(employee_id)REFERENCES employee_details(employee_id));
+    create table ordered_items(employee_id integer,item_id integer,name varchar(32),quantity integer,date DATE DEFAULT CURRENT_DATE,FOREIGN KEY(employee_id)REFERENCES employee_details(employee_id),FOREIGN KEY(item_id) REFERENCES beverage_details(item_id));
+
+
 
 
 
