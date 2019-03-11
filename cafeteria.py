@@ -70,12 +70,12 @@ def hot_item(connection, user_data):
     items = []
     for row in rows:
         items.append({"id": row[0], "name": row[1]})
-    return render_template("list_hot_beverages_jinja.html", item=items, employee_id=array_value)
+    return render_template("list_hot_beverages_jinja.html", items=items, employee_id=array_value)
 
 
 def display_available_hot_items():
     cursor = connection.cursor()
-    cursor.execute("select name from beverage_details where is_available  ='yes' AND vendor_id=1002")
+    cursor.execute("select item_id,name from beverage_details where is_available  ='yes' AND vendor_id=1002")
     record = cursor.fetchall()
 
     return record
@@ -212,10 +212,9 @@ def database_connection_list(connection, user_data):
 def calculation_for_report():
     sum = calculation(connection, request.form)
     cost = total(connection, request.form)
-    sum_cost = tuple(sum)
-    array = tuple(cost)
-
-    return render_template("generate_report.html", item=array, items=sum_cost)
+    array = cost[0]
+    array_first_value = array[0]
+    return render_template("generate_report.html", item=array_first_value, items=sum)
 
 
 def calculation(connection, user_data):
@@ -223,7 +222,7 @@ def calculation(connection, user_data):
     array_values = tuple(user_data.values())
     array_value = array_values[0]
 
-    sql_update = "select ordered_items.employee_id,beverage_details.item_id,ordered_items.date,sum(ordered_items.quantity*beverage_details.cost) FROM ordered_items inner join beverage_details on ordered_items.item_id=beverage_details.item_id GROUP BY ordered_items.employee_id,beverage_details.item_id,ordered_items.date ORDER BY employee_id"
+    sql_update = "select ordered_items.employee_id,beverage_details.item_id,ordered_items.date,sum(ordered_items.quantity*beverage_details.cost) FROM ordered_items inner join beverage_details on ordered_items.item_id=beverage_details.item_id where beverage_details.vendor_id=%(vendor_id)s GROUP BY ordered_items.employee_id,beverage_details.item_id,ordered_items.date ORDER BY employee_id"
     cursor.execute(sql_update, {'vendor_id': array_value})
     cost = cursor.fetchall()
     cursor.close()
