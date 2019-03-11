@@ -6,12 +6,13 @@
 </head>
 <body>
 
-<h1 style="text-align:center">Hot Beverage</h1>
+<h1 style="text-align:center">Beverage</h1>
 
 <form action="/submission" method="POST" >
+     <input type="hidden" name="vendorname" value={{name}}>
     <ul>
         {% for item in items %}
-        <li style="list-style-type:none;"><input type="checkbox" name="{{item}}" class="check" >{{ item }}
+        <li style="list-style-type:none;"><input type="checkbox" name="{{item}}" >{{ item }}
         </li>
         {% endfor %}
     </ul>
