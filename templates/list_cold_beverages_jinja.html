@@ -2,46 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>hot_available</title>
-    <style>
-        .sidenav {
-        height: 100%;
-        width:250px;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        background-color:grey;
-        padding-top: 20px;
-}
-
-
-    </style>
-    <script>
-        function myFunction(myBtn) {
-        var x = document.getElementById("myBtn").value;
-        document.getElementById("demo").innerHTML = x;
-        var z = document.createElement("INPUT");
-        z.setAttribute("type","number");
-        z.setAttribute("value","0");
-        document.body.append(z);
-        document.getElementById(myBtn.id).disabled = true;
-}
-
-    </script>
+    <title>cold_available</title>
 </head>
 <body>
-<form action="/beverages-for-cold">
+<form action="/cold-item" method="post">
     <ul>
+        <input type="hidden" name="employeeid" value="{{employee_id}}">
         {% for item in items %}
-        <li>
-            <input type="button" onclick="myFunction(this)" id="myBtn" name="{{lists}}" value="{{item}}">
-
-            <p id="demo"></p>
-
+        <li style="list-style-type:none;">{{ item.name }}
+            <input type="number" name="{{item.id}}" value="0"/>
         </li>
+
         {% endfor %}
     </ul>
+       <button type="submit" >Order</button>
+
 </form>
 </body>
 </html>
