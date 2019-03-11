@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>hot_available</title>
 </head>
 <body>
+<form action="/hot-item" method="post">
+    <ul>
+        <input type="hidden" name="employeeid" value="{{employee_id}}">
+        {% for item in items %}
+        <li style="list-style-type:none;">{{ item.name }}
+            <input type="number" name="{{item.id}}" value="0"/>
+        </li>
 
+        {% endfor %}
+    </ul>
+    <button type="submit">Order</button>
+
+
+</form>
 </body>
 </html>
