@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/style.css"/>
 </head>
 <body>
+
+    <form action="/availability">
+        <input type="hidden" name="vendorname" value={{vendorname}}>
+        <button type="submit" class="login">Availability</button>
+    </form>
+
+    <form action="/report_generation_button" method="post">
+        <input type="hidden" name="vendorname" value={{vendorname}}>
+        <button type="submit" class="login">Report Generation</button>
+    </form>
 
 </body>
 </html>
