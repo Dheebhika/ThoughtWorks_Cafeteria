@@ -17,14 +17,15 @@ Table (for vendor login details):
 
 Table (for beverages details):
 
-    create table beverages(vendor_id integer,item_id SERIAL,item_name varchar(30),availability integer,cost integer,FOREIGN KEY(vendor_id) REFERENCES vendor_login(id),PRIMARY KEY(item_id));
+    create table beverage_details(vendor_id integer,item_id SERIAL,name varchar(30),is_available varchar(32),cost integer,FOREIGN KEY(vendor_id) REFERENCES vendor_details(vendor_id),PRIMARY KEY(item_id));
+
+    insert into beverage_details values(1001,1,'Apple Juice','No',30),(1001,2,'Orange Juice','No',30),(1001,3,'Watermelon Juice','No',40),(1001,4,'Muskmelon Juice','No',40),(1001,5,'Kiwi Juice','No',50),(1002,6,'Coffee','No',20),(1002,7,'Tea','No',20),(1002,8,'Ginger tea','No',30),(1002,9,'Boost','No',40),(1002,10,'Horlicks','No',0)
 
 
 Table (for ordered items):
 
-    create table ordered_items(employee_id integer,item_id integer,name varchar(32),quantity integer,date DATE DEFAULT CURRENT_DATE,FOREIGN KEY(employee_id)REFERENCES employee_details(employee_id),FOREIGN KEY(item_id) REFERENCES beverage_details(item_id));
+    create table ordered_items(employee_id integer references employee_details(employee_id),item_id SERIAL references beverage_details(item_id),quantity integer,date DATE DEFAULT CURRENT_DATE);
 
-
-
+    select employee_id,item_id,date,COUNT(*),sum(quantity) FROM ordered_items GROUP BY employee_id,item_id,date ORDER BY employee_id;
 
 
