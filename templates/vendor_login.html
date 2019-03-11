@@ -7,10 +7,11 @@
 </head>
 <body background="../static/assets/employee_background_image.jpg" class="style" class="employee_background_image">
 <form action="/vendor-type" class="border" method="post">
+    <input type="hidden" name="vendorname" value={{name}}>
     <div class="container">
 
         <label for="number"><b>Vendor ID</b></label>
-        <input type="number" name="employee_id" id="number" placeholder="Enter your ID ..." required>
+        <input type="number" name="vendor_id" id="number" placeholder="Enter your ID ..." required>
 
         <label for="password"><b>Password</b></label>
         <input type="password" name="pwd" id="password" placeholder="Enter your password ..." required><br>
